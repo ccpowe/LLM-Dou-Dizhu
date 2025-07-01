@@ -42,9 +42,9 @@ class Card:
     
     def __str__(self) -> str:
         if self.rank == 16:
-            return "🃏"  # 小王
+            return "🂿"  # 小王
         elif self.rank == 17:
-            return "🂿"  # 大王
+            return "🃏"  # 大王
         else:
             rank_map = {11: 'J', 12: 'Q', 13: 'K', 14: 'A', 15: '2'}
             rank_str = rank_map.get(self.rank, str(self.rank))

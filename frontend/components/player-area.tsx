@@ -32,7 +32,7 @@ export function PlayerArea({ player, position, showCards }: PlayerAreaProps) {
   const getPlayerNameColor = () => {
     if (player.name.includes("Gemini")) return "text-blue-400"
     if (player.name.includes("GPT")) return "text-green-400"
-    if (player.name.includes("Claude")) return "text-purple-400"
+    if (player.name.includes("BaiDu")) return "text-purple-400"
     return "text-white"
   }
 

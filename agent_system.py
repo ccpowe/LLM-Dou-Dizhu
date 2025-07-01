@@ -66,12 +66,12 @@ class LLMAgentManager:
         # 为每个玩家创建独立的LLM实例
         api_key = os.getenv("OPENAI_API_KEY")
         base_url = os.getenv("MODEL_BASE_URL")
-        model_name = os.getenv("MODEL_NAME") or "gpt-4o-mini"
+        # model_name = os.getenv("MODEL_NAME") or "gpt-4o-mini"
         
         self.llm_instances = {
-            "player_1": ChatOpenAI(model=model_name, api_key=api_key, base_url=base_url),
-            "player_2": ChatOpenAI(model=model_name, api_key=api_key, base_url=base_url),
-            "player_3": ChatOpenAI(model=model_name, api_key=api_key, base_url=base_url)
+            "player_1": ChatOpenAI(model=os.getenv("MODEL_NAME_1") or "gpt-4o-mini", api_key=api_key, base_url=base_url),
+            "player_2": ChatOpenAI(model=os.getenv("MODEL_NAME_2") or "gpt-4o-mini", api_key=api_key, base_url=base_url),
+            "player_3": ChatOpenAI(model=os.getenv("MODEL_NAME_3") or "gpt-4o-mini", api_key=api_key, base_url=base_url)
         }
     
     async def get_player_decision(self, player_id: str, prompt: str) -> str:
