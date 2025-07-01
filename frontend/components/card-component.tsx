@@ -5,15 +5,20 @@ interface CardComponentProps {
 
 export function CardComponent({ cardCode, isFaceUp }: CardComponentProps) {
   const parseCard = (code: string) => {
-    if (code === "BJ") return { suit: "🃏", rank: "小", color: "text-gray-900" }
-    if (code === "RJ") return { suit: "🃏", rank: "大", color: "text-red-500" }
+    // 只检测标准的大王小王编码
+    if (code === "BJ") {
+      return { suit: "小", rank: "王", color: "text-black", bgColor: "bg-gray-200" }
+    }
+    if (code === "RJ") {
+      return { suit: "大", rank: "王", color: "text-red-600", bgColor: "bg-yellow-100" }
+    }
 
     const suit = code[0]
     const rank = code.slice(1)
 
     const suitMap: { [key: string]: string } = {
       S: "♠️",
-      H: "♥️",
+      H: "♥️", 
       D: "♦️",
       C: "♣️",
     }
@@ -29,6 +34,7 @@ export function CardComponent({ cardCode, isFaceUp }: CardComponentProps) {
       suit: suitMap[suit] || suit,
       rank: rank,
       color: colorMap[suit] || "text-gray-900",
+      bgColor: "bg-white"
     }
   }
 
@@ -40,10 +46,10 @@ export function CardComponent({ cardCode, isFaceUp }: CardComponentProps) {
     )
   }
 
-  const { suit, rank, color } = parseCard(cardCode)
+  const { suit, rank, color, bgColor } = parseCard(cardCode)
 
   return (
-    <div className="w-12 h-16 bg-white border border-gray-300 rounded flex flex-col items-center justify-center text-xs font-bold shadow-sm">
+    <div className={`w-12 h-16 ${bgColor} border border-gray-300 rounded flex flex-col items-center justify-center text-xs font-bold shadow-sm`}>
       <div className={color}>{suit}</div>
       <div className={color}>{rank}</div>
     </div>

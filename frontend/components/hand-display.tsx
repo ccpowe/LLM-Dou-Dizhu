@@ -60,18 +60,6 @@ export function HandDisplay({ cards, showCards, cardCount }: HandDisplayProps) {
           </div>
         </div>
       )}
-      
-      {/* 显示手牌统计信息 - 减少上边距 */}
-      <div className="mt-1 text-xs text-gray-400 flex items-center justify-between">
-        <span>
-          {cards.length > 0 ? `显示 ${cards.length} 张牌` : `共 ${cardCount} 张牌`}
-        </span>
-        {cards.length > 0 && (
-          <span className="text-green-400 text-xs">
-            ● 实时数据
-          </span>
-        )}
-      </div>
     </div>
   )
 }

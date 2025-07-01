@@ -32,26 +32,26 @@ export function PlayerArea({ player, position, showCards }: PlayerAreaProps) {
   const getPlayerNameColor = () => {
     if (player.name.includes("Gemini")) return "text-blue-400"
     if (player.name.includes("GPT")) return "text-green-400"
-    if (player.name.includes("BaiDu")) return "text-purple-400"
+    if (player.name.includes("BaiDu") || player.name.includes("Claude")) return "text-purple-400"
     return "text-white"
   }
 
-  // 根据位置调整卡片高度
+  // 根据位置调整卡片高度 - 再增大15%
   const getCardHeight = () => {
     switch (position) {
       case "bottom":
-        return "min-h-[160px]" // 进一步减少底部玩家区域高度
+        return "min-h-[184px]" // 160px * 1.15 = 184px
       case "top-left":
       case "top-right":
-        return "min-h-[120px]" // 进一步减少顶部玩家区域高度
+        return "min-h-[150px]" // 130px * 1.15 = 150px
       default:
-        return "min-h-[120px]"
+        return "min-h-[150px]"
     }
   }
 
   return (
     <Card className={`bg-gray-800 border-gray-700 compact-player-card ${getCardHeight()} ${player.is_turn ? "ring-2 ring-blue-400 shadow-lg shadow-blue-400/20" : ""}`}>
-      <div className="flex items-center justify-between mb-2">
+      <div className="flex items-center justify-between mb-1">
         <div className="flex items-center space-x-2">
           <span className={`font-semibold ${getPlayerNameColor()}`}>
             {player.name}
@@ -90,25 +90,13 @@ export function PlayerArea({ player, position, showCards }: PlayerAreaProps) {
         </div>
       </div>
 
-      {/* 扑克牌显示区域 */}
-      <div className="flex-1 mb-1">
+      {/* 扑克牌显示区域 - 为底部玩家添加特殊类 */}
+      <div className={`flex-1 ${position === "bottom" ? "bottom-player" : ""}`}>
         <HandDisplay 
           cards={showCards && isCardsVisible ? player.hand : []} 
           showCards={showCards && isCardsVisible} 
           cardCount={player.hand_count} 
         />
-      </div>
-
-      {/* 玩家状态指示器 - 进一步减少上边距 */}
-      <div className="flex items-center justify-between text-xs text-gray-500">
-        <span>
-          {position === "bottom" ? "主视角" : "观察视角"}
-        </span>
-        {showCards && (
-          <span className="text-green-400">
-            ● 扑克牌可见
-          </span>
-        )}
       </div>
     </Card>
   )

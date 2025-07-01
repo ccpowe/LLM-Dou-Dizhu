@@ -35,7 +35,7 @@ export function WelcomeView({ onStartGame, isLoading, error }: WelcomeViewProps)
             </div>
             <div className="flex justify-between">
               <span>Agent 3:</span>
-              <span className="text-purple-400">Claude 3</span>
+              <span className="text-purple-400">BaiDu</span>
             </div>
           </div>
         </div>

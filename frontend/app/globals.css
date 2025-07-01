@@ -178,16 +178,16 @@
     justify-content: flex-start;
   }
   
-  /* 限制扑克牌区域高度 - 减少高度限制 */
+  /* 限制扑克牌区域高度 - 再增大15% */
   .cards-container {
-    max-height: 90px; /* 从120px减少到90px */
+    max-height: 138px; /* 120px * 1.15 = 138px */
     overflow-y: auto;
     overflow-x: hidden;
   }
   
-  /* 为底部玩家提供稍多空间 */
+  /* 为底部玩家提供更多空间 */
   .bottom-player .cards-container {
-    max-height: 110px; /* 从160px减少到110px */
+    max-height: 161px; /* 140px * 1.15 = 161px */
   }
   
   /* 防止布局撑破 */

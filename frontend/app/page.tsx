@@ -74,7 +74,7 @@ export default function Home() {
           player_names: {
             "player_1": "Agent 1 (Gemini)",
             "player_2": "Agent 2 (GPT-4o)", 
-            "player_3": "Agent 3 (Claude)"
+            "player_3": "Agent 3 (BaiDu)"
           }
         })
       })
@@ -216,7 +216,7 @@ export default function Home() {
         },
         {
           id: "player_3",
-          name: "Agent 3 (Claude)",
+          name: "Agent 3 (BaiDu)",
           role: "pending",
           hand: [],
           hand_count: 17,
@@ -254,7 +254,7 @@ export default function Home() {
         },
         {
           id: "player_3",
-          name: "Agent 3 (Claude)",
+          name: "Agent 3 (BaiDu)",
           role: backendState.landlord === "player_3" ? "landlord" : 
                 (backendState.landlord ? "farmer" : "pending"),
           hand: playerHands.player_3?.cards || [],
