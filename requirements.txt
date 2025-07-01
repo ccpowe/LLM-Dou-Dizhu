@@ -1,0 +1,35 @@
+# 斗地主多智能体系统依赖文件
+
+# 核心框架
+fastapi==0.104.1
+uvicorn[standard]==0.24.0
+pydantic==2.5.0
+python-dotenv==1.0.0
+
+# LangChain和LangGraph
+langchain==0.0.350
+langchain-openai==0.0.5
+langchain-core==0.1.0
+langgraph==0.0.69
+
+# 异步和并发
+asyncio-mqtt==0.14.0
+aiofiles==23.2.1
+
+# 工具库
+python-multipart==0.0.6
+python-jose[cryptography]==3.3.0
+passlib[bcrypt]==1.7.4
+
+# 开发和调试
+pytest==7.4.3
+pytest-asyncio==0.21.1
+httpx==0.25.2
+
+# 日志和监控
+loguru==0.7.2
+
+# 可选：如果需要本地LLM支持
+# ollama==0.1.0
+# transformers==4.35.0
+# torch==2.1.0 

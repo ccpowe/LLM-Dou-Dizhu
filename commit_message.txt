@@ -1,0 +1,6 @@
+Initial commit: 斗地主多智能体系统
+
+- 基于 LangGraph 和 FastAPI 的完整后端
+- Next.js + React 前端界面
+- 支持三个 AI 智能体循环交互
+- 完整的斗地主游戏逻辑实现
